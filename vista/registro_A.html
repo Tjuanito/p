@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../recursos/css/style_R_A.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>REGISTRO</title>
+    <style>
+       .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 10px 40px; /* Espacio para el ícono */
+        }
+        .toggle-password {
+            cursor: pointer;
+            color: rgb(255, 255, 255); /* Color blanco */
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em; /* Aumentar el tamaño del ícono */
+        }
+    </style>
+</head>
+<body>
+    <div class="loginbox">
+        <h1>REGISTRO</h1>
+        <form action="../controlador/registro_A.php" method="POST" class="caja" id="formulario">
+            <div id="grupo_nick" class="formulario_grupo">
+                <p>Nick_Name</p>
+                <input type="text" id="nick" name="nick" placeholder="Apodo" required>
+                <div class="formulario_input-error">Nombre de usuario no válido.</div>
+            </div>
+            <div id="grupo_documento" class="formulario_grupo">
+                <p>Documento</p>
+                <input type="text" id="documento" name="documento" placeholder="Documento" required>
+                <div class="formulario_input-error">Documento no válido.</div>
+            </div>
+            <div id="grupo_correo" class="formulario_grupo">
+                <p>Correo</p>
+                <input type="email" id="correo" name="correo" placeholder="Correo" required>
+                <div class="formulario_input-error">Correo no válido.</div>
+            </div>
+            <div id="grupo_password" class="formulario_grupo">
+                <p>Password</p>
+                <div class="password-container">
+                    <input type="password" id="password" name="passwords" placeholder="Contraseña" required>
+                    <span class="bx bx-show toggle-password" onclick="togglePassword()"></span>
+                </div>
+                <div class="formulario_input-error">Contraseña no válida.</div>
+            </div>
+            <div id="grupo_foto" class="formulario_grupo">
+                <p>Foto de perfil</p>
+                <br>
+                <input type="file" id="foto" name="foto" accept="image/*">
+                <p class="formulario_input-error">Por favor, suba una foto de perfil válida.</p>
+            </div>
+            <input type="submit" value="Registrarse" name="btn_enviar">
+         
+        </form>
+    </div>
+
+
+
+    <script src="../JS/script_R.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            const passwordType = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', passwordType);
+            eyeIcon.classList.toggle('bx-show');
+            eyeIcon.classList.toggle('bx-hide');
+        
+        }
+    </script>
+</body>
+
+</html>
